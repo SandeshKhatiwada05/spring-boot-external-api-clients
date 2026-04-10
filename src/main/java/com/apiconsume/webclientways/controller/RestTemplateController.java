@@ -14,7 +14,7 @@ public class RestTemplateController {
     private RestTemplate restTemplate;
 
     @GetMapping("/getOneData")
-    public RecordEntity RestTemplateAPIConsume() {
+    public RecordEntity restTemplateAPIConsume() {
         return this.restTemplate.getForObject(
                 "https://jsonplaceholder.typicode.com/posts/2",
                 RecordEntity.class);
