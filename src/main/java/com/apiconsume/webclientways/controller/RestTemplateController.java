@@ -15,18 +15,18 @@ public class RestTemplateController {
 
     @GetMapping("/getOneData")
     public RecordEntity RestTemplateAPIConsume() {
-        return
-                this.restTemplate.getForObject(
-                        "https://jsonplaceholder.typicode.com/posts/2",
-                        RecordEntity.class);
+        return this.restTemplate.getForObject(
+                "https://jsonplaceholder.typicode.com/posts/2",
+                RecordEntity.class);
     }
 
     @PostMapping("/posts")
     public RecordEntity postData() {
-        RecordEntity dataResponse = new RecordEntity(102, 1, "Sandesh");
-        return this.restTemplate.postForObject("https://jsonplaceholder.typicode.com/posts",
-                                                    dataResponse,
-                                                    RecordEntity.class
+        RecordEntity dataResponse = new RecordEntity(102, 1, "Hi hello", "Hello how are you?");
+        return this.restTemplate.postForObject(
+                "https://jsonplaceholder.typicode.com/posts",
+                dataResponse,
+                RecordEntity.class
         );
     }
 }
