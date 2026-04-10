@@ -28,5 +28,14 @@ public class WebClientController {
         return monoRecordEntity.block();
     }
 
-
+    @PostMapping("/postWebClient")
+    public RecordEntity webClienttPost(){
+        return webClient
+                .post()
+                .uri("https://jsonplaceholder.typicode.com/posts")
+                .bodyValue(new RecordEntity(99, 2, "Avra kadabra", "Harry Potter was a good movie"))
+                .retrieve()
+                .bodyToMono(RecordEntity.class)
+                .block();
+    }
 }
